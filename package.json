@@ -1,0 +1,15 @@
+{
+  "name": "lecompteurdemots",
+  "version": "1.0.0",
+  "description": "Mon compteur de mots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Compteur",
+    "Mots"
+  ],
+  "author": "Jeremy Tardini",
+  "license": "ISC"
+}
