@@ -13,10 +13,12 @@
         <h1>Compteur de mots</h1>
     </header>
     <main>
-        <input type="text" id="Compteur" placeholder="Mettez votre text ici ...">
+        <textarea name="compteur" id="Compteur" cols="30" rows="10" max="10000000" placeholder="Mettez votre text ici ..."></textarea>
         <div>
-            <div id="NbrMots"></div>
+            <div id="NbrMots"><p id="nombre"></p></div>
+            <button id="compte">Compte !</button>
         </div>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>

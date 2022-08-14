@@ -11,5 +11,8 @@
     "Mots"
   ],
   "author": "Jeremy Tardini",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.54.4"
+  }
 }
