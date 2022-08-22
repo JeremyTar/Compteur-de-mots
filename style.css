@@ -1,13 +1,39 @@
-body header h1 {
-  color: red;
+@font-face {
+  font-family: "cursive";
+  src: url("./font/Cursive standard.ttf");
 }
-body #Compteur {
+@font-face {
+  font-family: "LGCofe";
+  src: url("./font/Louis George Cafe.ttf");
+}
+body {
+  background-color: #FDF4E3;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body header h1 {
+  font-family: "cursive";
+  color: #3f2901;
+}
+body header p {
+  font-family: "LGcofe";
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main #Compteur {
   width: 50%;
   height: 350px;
+  border: 3px ridge #3f2901;
 }
-body ::placeholder {
-  text-align: start;
-  width: 100%;
+body main ::placeholder {
+  text-align: left;
+  width: 95%;
   height: 100%;
 }
 

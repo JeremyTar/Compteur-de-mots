@@ -1,6 +1,8 @@
 function createDiv(number) {
-    let old = document.getElementById("nombre")
-    div.removeChild(old)
+    if(document.getElementById("nombre")) {
+        let old = document.getElementById("nombre")
+        div.removeChild(old)
+    }
     const newParagraphe = document.createElement("p")
     newParagraphe.append(`Il y a ${number} mots`)
     return newParagraphe
@@ -61,7 +63,6 @@ function tchekWords(currentWord, content) {
                 nbr: 1
             }
             content.push(newWord)
-            return
         }
     }
 }
