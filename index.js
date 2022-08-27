@@ -15,25 +15,35 @@ if(document.getElementById("ul")) {
     const ul = document.getElementById('ul')
     ul.parentNode.removeChild(ul)
 }
-const ul = document.createElement("ul")
+const ul = document.createElement("div")
 ul.setAttribute("id", "ul")
-for(const i in content) {
-    let li = document.createElement("li")
-    li.append(`${content[i].word} : ${content[i].nbr} fois`)
-    console.log(content[i])
-    ul.appendChild(li)
-    listWord.appendChild(ul)
+makeStyleUl(ul)
+    for(const i in content) {
+        let li = document.createElement("p")
+        makeStyleLi(li)
+        li.append(`${content[i].word} : ${content[i].nbr} fois`)
+        console.log(content[i])
+        ul.appendChild(li)
+        listWord.appendChild(ul)
+    }
 }
+
+function makeStyleLi(element) {
+    element.style.fontFamily = "LGCofe"
+}
+
+function makeStyleUl(element) {
+    element.style.listeStyle = "none"
 }
 
 function compte() {
     const text = document.getElementById("Compteur").value
     let nombre = 0
     const array = text.split(" ")
-    for(const i in array) {
-        console.log(array[i])
-        array.splice("\n", 1)
-    }
+    // for(const i in array) {
+    //     console.log(array[i])
+    //     // array.splice("\n", 1)
+    // }
     howManyDistinctWord(array)
     console.log(array)
     console.log(content)
@@ -61,7 +71,7 @@ function howManyDistinctWord(Array) {
     let word = {
         word: Array[0],
         nbr: 1
-    }
+    } 
     content.push(word)
     console.log(content)
     for(let i = 1; i < Array.length; i++) {
@@ -70,9 +80,10 @@ function howManyDistinctWord(Array) {
     console.log(content)
 }
 
-
-
 function tchekWords(currentWord, content) {
+    if(currentWord == "" || currentWord == "..." || currentWord == "." || currentWord == "?" || currentWord == "," || currentWord == ":" || currentWord == "!") {
+        return
+    }
     for(let i = 0; i < content.length; i++) {
         if(currentWord == content[i].word) {
             content[i].nbr += 1
@@ -87,6 +98,7 @@ function tchekWords(currentWord, content) {
             }
             content.push(newWord)
             return
+
         }
     }
 }
