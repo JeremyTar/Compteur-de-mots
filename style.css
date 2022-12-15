@@ -15,11 +15,11 @@ body header {
   align-items: center;
 }
 body header h1 {
-  font-family: "cursive";
+  font-family: "cursive", sans-serif;
   color: #3f2901;
 }
 body header p {
-  font-family: "LGcofe";
+  font-family: "LGcofe", sans-serif;
 }
 body main {
   display: flex;

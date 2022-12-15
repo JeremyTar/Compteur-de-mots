@@ -40,10 +40,6 @@ function compte() {
     const text = document.getElementById("Compteur").value
     let nombre = 0
     const array = text.split(" ")
-    // for(const i in array) {
-    //     console.log(array[i])
-    //     // array.splice("\n", 1)
-    // }
     howManyDistinctWord(array)
     console.log(array)
     console.log(content)
@@ -67,7 +63,6 @@ function howManyDistinctWord(Array) {
     if(content.length) {
         content.length = 0
     }
-    console.log("creation")
     let word = {
         word: Array[0],
         nbr: 1
@@ -91,7 +86,6 @@ function tchekWords(currentWord, content) {
             return
         }
         if(i == content.length - 1) {
-            console.log("je crée")
             let newWord = {
                 word: currentWord,
                 nbr: 1
