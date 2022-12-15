@@ -1,7 +1,7 @@
 function createDiv(number: number): HTMLElement {
-    if(document.getElementById("nombre")) {
+    if (document.getElementById("nombre")) {
         let old: HTMLElement | null = document.getElementById("nombre")
-        if(old && NumberOfWorld) {
+        if (old && NumberOfWorld) {
             NumberOfWorld.removeChild(old)
         }
         else {
@@ -15,18 +15,18 @@ function createDiv(number: number): HTMLElement {
 }
 
 function afficheListWord(): void {
-if(document.getElementById("ul")) {
-    const ul = document.getElementById('ul')
-    if(ul && ul.parentNode) {
-        let parentNode = ul.parentNode
-        parentNode.removeChild(ul)
-    } 
-}
-const div: HTMLElement = document.createElement("div")
-div.setAttribute("id", "ul")
-makeStyleUl(div)
-    if(listWord) {
-        for(const i in content) {
+    if (document.getElementById("ul")) {
+        const ul = document.getElementById('ul')
+        if (ul && ul.parentNode) {
+            let parentNode = ul.parentNode
+            parentNode.removeChild(ul)
+        }
+    }
+    const div: HTMLElement = document.createElement("div")
+    div.setAttribute("id", "ul")
+    makeStyleUl(div)
+    if (listWord) {
+        for (const i in content) {
             let li = document.createElement("p")
             makeStyleLi(li)
             li.append(`${content[i].word} : ${content[i].nbr} fois`)
@@ -46,57 +46,56 @@ function makeStyleUl(element: HTMLElement) {
 }
 
 function compte() {
-    if(document.getElementById("Compteur") && NumberOfWorld) {
-        const text = (<HTMLInputElement>document.getElementById("Compteur")).value
-        let nombre: number = 0
-        const array: string[] = text.split(" ")
-        howManyDistinctWord(array)
-        console.log(array)
-        console.log(content)
-        const espace: string[] = text.split("\n")
-        for(const i in array){
-            if(array[i] != "") {
-                nombre += 1
-            }
+
+    const text = (<HTMLInputElement>document.getElementById("Compteur")).value
+    let nombre: number = 0
+    const array: string[] = text.split(" ")
+    howManyDistinctWord(array)
+    console.log(array)
+    console.log(content)
+    const espace: string[] = text.split("\n")
+    for (const i in array) {
+        if (array[i] != "") {
+            nombre += 1
         }
-        for(const i in espace) {
-            if(espace[i] == "") {
-                nombre += 1
-            }
-        }
-        const p = createDiv(nombre)
-        NumberOfWorld.appendChild(p)
-        afficheListWord()
     }
+    for (const i in espace) {
+        if (espace[i] == "") {
+            nombre += 1
+        }
+    }
+    const p = createDiv(nombre)
+    NumberOfWorld.appendChild(p)
+    afficheListWord()
 }
 
 function howManyDistinctWord(Array: string[]): void {
-    if(content.length) {
+    if (content.length) {
         content.length = 0
     }
     let word: Object = {
         word: Array[0],
         nbr: 1
-    } 
+    }
     content.push(word)
     console.log(content)
-    for(let i = 1; i < Array.length; i++) {
+    for (let i = 1; i < Array.length; i++) {
         tchekWords(Array[i], content)
     }
     console.log(content)
 }
 
 function tchekWords(currentWord: string, content: any) {
-    if(currentWord == "" || currentWord == "..." || currentWord == "." || currentWord == "?" || currentWord == "," || currentWord == ":" || currentWord == "!") {
+    if (currentWord == "" || currentWord == "..." || currentWord == "." || currentWord == "?" || currentWord == "," || currentWord == ":" || currentWord == "!") {
         return
     }
-    for(let i = 0; i < content.length; i++) {
-        if(currentWord == content[i].word) {
+    for (let i = 0; i < content.length; i++) {
+        if (currentWord == content[i].word) {
             content[i].nbr += 1
             console.log("+1")
             return
         }
-        if(i == content.length - 1) {
+        if (i == content.length - 1) {
             let newWord = {
                 word: currentWord,
                 nbr: 1
@@ -109,10 +108,9 @@ function tchekWords(currentWord: string, content: any) {
 }
 
 let content: any[] = []
-const button: HTMLElement | null = document.getElementById('compte')
-if(button) {
-    button.addEventListener('click', compte)    
-}
-const NumberOfWorld: HTMLElement | null = document.getElementById("NbrMots")
-const listWord: HTMLElement | null = document.getElementById("ListeWords")
+const button = (<HTMLElement>document.getElementById('compte'))
+button.addEventListener('click', compte)
+
+const NumberOfWorld = (<HTMLElement>document.getElementById("NbrMots"))
+const listWord = (<HTMLElement>document.getElementById("ListeWords"))
 
